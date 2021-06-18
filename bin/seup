@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ -z "$1" ];then
+    docker-compose exec app /var/www/html/bin/magento se:up
+    docker-compose exec app chmod -R 777 /var/www/html/var /var/www/html/pub/ /var/www/html/generated/
+else
+    docker-compose exec $1 bash
+    docker-compose exec $1 /var/www/html/bin/magento se:up
+    docker-compose exec $1 chmod -R 777 /var/www/html/var /var/www/html/pub/ /var/www/html/generated/
+fi

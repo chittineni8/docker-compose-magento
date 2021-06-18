@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ];then
+    docker-compose -f ./docker-compose.dev.yml restart
+else
+    docker-compose -f ./docker-compose.dev.yml restart $1
+fi

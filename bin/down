@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ];then
+    docker-compose -f ./docker-compose.dev.yml down
+else
+    docker-compose -f ./docker-compose.dev.yml down $1
+fi

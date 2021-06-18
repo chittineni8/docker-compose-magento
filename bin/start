@@ -1,0 +1,21 @@
+#!/bin/bash
+if [ -z "$1" ];then
+    sudo chown -R $USER:$USER /var/run/docker.sock
+    sudo /etc/init.d/apache2 stop
+    sudo /etc/init.d/apache2 stop
+    sudo /etc/init.d/nginx stop
+    sudo /etc/init.d/mysql stop
+    sudo /etc/init.d/elasticsearch stop
+    sudo /etc/init.d/redis stop
+    docker-compose -f ./docker-compose.dev.yml up -d
+else
+    sudo chown -R $USER:$USER /var/run/docker.sock
+    sudo /etc/init.d/apache2 stop
+    sudo /etc/init.d/apache2 stop
+    sudo /etc/init.d/nginx stop
+    sudo /etc/init.d/mysql stop
+    sudo /etc/init.d/elasticsearch stop
+    sudo /etc/init.d/redis stop
+    docker-compose -f ./docker-compose.dev.yml up -d $1
+fi
+
